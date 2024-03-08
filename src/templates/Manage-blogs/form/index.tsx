@@ -8,7 +8,7 @@ import {
 } from "./constant";
 import { Formik } from "formik";
 import { Form, SubmitButton } from "formik-antd";
-import { Button, Col, Row, Skeleton, message } from "antd";
+import { Button, Col, Radio, Row, Skeleton, message } from "antd";
 import Upload from "../../../components/ImageUpload";
 import InputText from "../../../components/InputText/input";
 import { ContentContainer, StyledModal } from "./styled";
@@ -17,6 +17,8 @@ import { CloseOutlined } from "@ant-design/icons";
 import { useMutation, useQuery } from "@apollo/client";
 import { CREATE_BLOG, GET_BLOG } from "./gql";
 import { useNavigate, useParams } from "react-router";
+import { StyledOptions } from "../../Manage-recipe/form/Styled";
+import { RadioChangeEvent } from "antd/lib";
 
 function BlogsForm() {
   const { id } = useParams();
@@ -109,8 +111,34 @@ function BlogsForm() {
               </Row>
               <br />
               <Row gutter={20}>
-                <InputText name="title" placeholder="title" label="Title" />
-                <InputText name="author" placeholder="author" label="Author" />
+                <InputText
+                  name="title"
+                  placeholder="title"
+                  label="Title"
+                  span={10}
+                />
+                <InputText
+                  name="author"
+                  placeholder="author"
+                  label="Author"
+                  span={10}
+                />
+                <Col span={4}>
+                  <StyledOptions>
+                    <p>Trending:</p>
+                    <Radio.Group
+                      value={values.trending}
+                      defaultValue={false}
+                      onChange={(e: RadioChangeEvent) =>
+                        setFieldValue("trending", e.target.value)
+                      }
+                      className="options"
+                    >
+                      <Radio value={true}>Yes</Radio>
+                      <Radio value={false}>Nope</Radio>
+                    </Radio.Group>
+                  </StyledOptions>
+                </Col>
               </Row>
               <Row>
                 <Col span={24}>

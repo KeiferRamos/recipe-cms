@@ -20,6 +20,7 @@ export type RecipeTypes = {
   ingredients: string[];
   instruction: string[];
   is_featured: boolean;
+  is_popular: boolean;
   similar: [];
 };
 
@@ -37,6 +38,7 @@ export const initialValues: RecipeTypes = {
   },
   category: "",
   tags: [],
+  is_popular: false,
   image: {
     square: "",
     landscape: "",
@@ -56,6 +58,7 @@ export const validationSchema = yup.object({
   ingredients: yup.array().min(1).required("This field is required"),
   instruction: yup.array().min(1).required("This field is required"),
   is_featured: yup.boolean().required("This field is required"),
+  is_popular: yup.boolean().required("This field is required"),
   category: yup.string().required("This field is required"),
 });
 

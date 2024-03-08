@@ -11,6 +11,7 @@ export const GET_RECIPE = gql`
         square
         landscape
       }
+      is_popular
       category
       cooking_time {
         id

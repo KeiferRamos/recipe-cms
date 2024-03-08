@@ -6,6 +6,7 @@ export const GET_BLOG = gql`
       id
       title
       banner_image
+      trending
       author
       content {
         id
@@ -23,6 +24,7 @@ export const CREATE_BLOG = gql`
       id
       title
       banner_image
+      trending
       author
     }
   }

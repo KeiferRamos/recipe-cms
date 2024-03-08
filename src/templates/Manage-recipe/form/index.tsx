@@ -197,6 +197,22 @@ function RecipeForm() {
                         </Radio.Group>
                       </StyledOptions>
                     </Col>
+                    <Col span={4}>
+                      <StyledOptions>
+                        <p>Popular:</p>
+                        <Radio.Group
+                          value={values.is_popular}
+                          defaultValue={false}
+                          onChange={(e: RadioChangeEvent) =>
+                            setFieldValue("is_popular", e.target.value)
+                          }
+                          className="options"
+                        >
+                          <Radio value={true}>Yes</Radio>
+                          <Radio value={false}>Nope</Radio>
+                        </Radio.Group>
+                      </StyledOptions>
+                    </Col>
                     <Col span={5}>
                       <StyledOptions>
                         <p>Cooking time:</p>
@@ -226,7 +242,7 @@ function RecipeForm() {
                         </Row>
                       </StyledOptions>
                     </Col>
-                    <Col span={15}>
+                    <Col span={11}>
                       <TagsHolder
                         values={values.similar}
                         onchange={(values) => setFieldValue("similar", values)}
